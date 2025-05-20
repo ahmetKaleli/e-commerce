@@ -6,11 +6,13 @@ import '../css/Header.css'
 import "../App.css"
 import { useDispatch, useSelector } from 'react-redux';
 import { setDrawer } from '../redux/slices/basketSlice';
+import { useNavigate } from 'react-router-dom';
 
 export default function Header() {
 
   const {products} = useSelector((store)=>store.basket)
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   return (
     <div className='header'>
@@ -20,7 +22,7 @@ export default function Header() {
       </div>
       <div >
         <ul>
-          <li>Home</li>
+          <li onClick={()=>navigate("/")}>Home</li>
           <li>About</li>
           <li>Contact</li>
         </ul>
